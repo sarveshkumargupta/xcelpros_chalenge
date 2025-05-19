@@ -32,3 +32,55 @@ This backend service allows users to input a dish name and number of servings, a
 ```bash
 git clone https://github.com/yourusername/meal-calorie-api.git
 cd meal-calorie-api
+
+2. **Install Dependencies**
+npm install
+
+3. **Configure Environment Variables**
+PORT=3000
+MONGODB_URI=your_mongodb_connection_string
+USDA_API_KEY=your_usda_api_key
+
+
+4. **Run the project:Development**
+npm run dev
+
+5. **Run the project:Production**
+npm start
+
+
+## 📦 API Endpoints
+
+1. **POST /api/get-calories**
+Request
+```json
+{
+  "dish_name": "chicken biryani",
+  "servings": 2
+}
+Respose
+```json
+{
+  "dish_name": "chicken biryani",
+  "servings": 2,
+  "calories_per_serving": 280,
+  "total_calories": 560,
+  "source": "USDA FoodData Central"
+}
+
+2. **POST /api/auth/register**
+Request
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john@example.com",
+  "password": "securePass123"
+}
+Response
+{
+  "message": "User registered successfully"
+}
+
+
+## 🌐 Frontend
+Visit http://localhost:3000 for a simple HTML form to use the calorie API.
