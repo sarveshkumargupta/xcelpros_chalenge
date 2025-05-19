@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calorie Count Checker</title>
+</head>
+<body>
+  <h2>Meal Calorie Calculator</h2>
+
+  <form id="calorie-form">
+    <label>Dish Name: <input type="text" name="dish_name" required /></label><br /><br />
+    <label>Servings: <input type="number" name="servings" required min="1" /></label><br /><br />
+    <button type="submit">Check Calories</button>
+  </form>
+
+  <div id="result" style="margin-top: 20px;"></div>
+
+  <script>
+    const form = document.getElementById('calorie-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultDiv.innerHTML = 'Loading...';
+
+      const dish_name = form.dish_name.value;
+      const servings = parseInt(form.servings.value);
+
+      const res = await fetch('/api/get-calories', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dish_name, servings })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        resultDiv.innerHTML = `
+          <p><strong>Dish:</strong> ${data.dish_name}</p>
+          <p><strong>Calories per Serving:</strong> ${data.calories_per_serving}</p>
+          <p><strong>Total Calories:</strong> ${data.total_calories}</p>
+        `;
+      } else {
+        resultDiv.innerHTML = `<p style="color: red;"><strong>Error:</strong> ${data.error || 'Something went wrong'}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
