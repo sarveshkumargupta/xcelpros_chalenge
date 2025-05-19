@@ -60,15 +60,15 @@ npm start
 ## 📦 API Endpoints
 
 1. **POST /api/get-calories**
--Request
+- Request
 ```bash
 {
   "dish_name": "chicken biryani",
   "servings": 2
 }
 ```
+- Response
 ```bash
--Respose
 {
   "dish_name": "chicken biryani",
   "servings": 2,
@@ -78,7 +78,7 @@ npm start
 }
 ```
 2. **POST /api/auth/register**
--Request
+- Request
 ```bash
 {
   "first_name": "John",
@@ -87,7 +87,7 @@ npm start
   "password": "securePass123"
 }
 ```
--Response
+- Response
 ```bash
 {
   "message": "User registered successfully"
