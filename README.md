@@ -47,6 +47,7 @@ npm run dev
 
 5. **Run the project:Production**
 npm start
+```
 
 
 ## 📦 API Endpoints
@@ -80,7 +81,7 @@ Response
 {
   "message": "User registered successfully"
 }
-
+```
 
 ## 🌐 Frontend
 Visit http://localhost:3000 for a simple HTML form to use the calorie API.
