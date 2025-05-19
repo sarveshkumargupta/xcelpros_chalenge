@@ -60,12 +60,15 @@ npm start
 ## 📦 API Endpoints
 
 1. **POST /api/get-calories**
-Request
+-Request
+```bash
 {
   "dish_name": "chicken biryani",
   "servings": 2
 }
-Respose
+```
+```bash
+-Respose
 {
   "dish_name": "chicken biryani",
   "servings": 2,
@@ -73,19 +76,23 @@ Respose
   "total_calories": 560,
   "source": "USDA FoodData Central"
 }
-
+```
 2. **POST /api/auth/register**
-Request
+-Request
+```bash
 {
   "first_name": "John",
   "last_name": "Doe",
   "email": "john@example.com",
   "password": "securePass123"
 }
-Response
+```
+-Response
+```bash
 {
   "message": "User registered successfully"
 }
+```
 
 ## 🌐 Frontend
 Visit http://localhost:3000 for a simple HTML form to use the calorie API.
